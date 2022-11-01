@@ -1,24 +1,44 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import "./App.css";
 
 function App() {
+  // State
+  const [Title, setTitle] = useState("");
+  const [Data, setData] = useState({ title: "", desc: "" });
+
+  // add todo
+  const addTodo = () => {
+    setData({
+      id: 1,
+      title: Title,
+      desc: "",
+      data: new Date(),
+    });
+  };
+
+  console.log(Data);
+
+  // Render
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <span>title</span>
+      <input
+        type="text"
+        value={Title}
+        onChange={(e) => setTitle(e.target.value)}
+      />
+      <span>desc</span>
+      <textarea />
+      <button onClick={addTodo}>Add todo</button>
+
+      <div>
+        <b>Title: </b>
+        <p>{Data?.title}</p>
+
+        <b>Desc: </b>
+        <p>{Data?.desc}</p>
+      </div>
+    </>
   );
 }
 

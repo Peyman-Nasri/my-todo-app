@@ -10,12 +10,12 @@ function App() {
   // add todo
   const addToDo = () => {
     const task =
-      {
+      [{
         id: 1,
         title: Title,
         desc: Desc,
         data: new Date(),
-      }
+      }]
     
       setData(task)
 

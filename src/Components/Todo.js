@@ -1,7 +1,7 @@
 import React from "react";
-import Input from "../Components/Input";
+import Input from "./Input";
 import { useState } from "react";
-import Todolist from "../Components/Todolist";
+import Todolist from "./Todolist";
 
 function Todo() {
   const [Data, setData] = useState(

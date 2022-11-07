@@ -6,10 +6,10 @@ function Todolist({ data }) {
       <div>
         {data.map(({ title, desc }) => (
           <>
-            <p>
+            <p key={data.id} >
               Title: <b>{title}</b>
             </p>
-            <p>
+            <p key={data.id} >
               Desc: <b>{desc}</b>
             </p>
           </>

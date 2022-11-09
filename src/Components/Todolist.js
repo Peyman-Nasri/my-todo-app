@@ -1,6 +1,7 @@
 import React from "react";
 
-function Todolist({ data }) {
+//add to list
+function Todolist({ data, deleteTodo }) {
   return (
     <>
       <div>
@@ -12,6 +13,7 @@ function Todolist({ data }) {
             <p>
               Desc: <b>{desc}</b>
             </p>
+            <button onClick={() => deleteTodo(id)}>delete</button>
           </div>
         ))}
       </div>

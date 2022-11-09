@@ -6,9 +6,11 @@ import { Button, Card, CardContent, Divider, TextField } from "@mui/material";
 import { Stack } from "@mui/system";
 
 function Input({ data, setData }) {
+  //temp state
   const [Title, setTitle] = useState("");
   const [Desc, setDesc] = useState("");
 
+  //add task
   const addToDo = () => {
     const task = {
       id: shortId(),
@@ -19,13 +21,15 @@ function Input({ data, setData }) {
     setTitle("");
     setDesc("");
 
-    const tasks = [...data, task];
+    if (Title === "" || Desc === "")
+      return alert("Please fill out the fields needed");
 
-    setData(tasks);
+    setData([...data, task]);
 
-    localStorage.setItem("toDo", JSON.stringify(tasks));
+    localStorage.setItem("toDo", JSON.stringify([...data, task]));
   };
 
+  //clear history
   const clearLocalStorage = () => {
     localStorage.clear();
     setData([]);
@@ -35,16 +39,16 @@ function Input({ data, setData }) {
       <Card>
         <CardContent>
           <Stack>
-            <p>Add Todo List</p>
             <TextField
               id="outlined-basic"
+              autoComplete="off"
               label="Title"
               variant="outlined"
               type="text"
               value={Title}
               onChange={(e) => setTitle(e.target.value)}
             />
-            <Divider style={{margin: '0.5em 0'}} />
+            <Divider style={{ margin: "0.5em 0" }} />
             {/* <span className="title">
               Title:
               <input
@@ -58,11 +62,10 @@ function Input({ data, setData }) {
               label="Description"
               multiline
               rows={4}
-              defaultValue="Default Value"
               value={Desc}
               onChange={(e) => setDesc(e.target.value)}
             />
-            <Divider style={{margin: '0.5em 0'}} />
+            <Divider style={{ margin: "0.5em 0" }} />
 
             {/* <span className="desc">
               Description:
@@ -77,7 +80,7 @@ function Input({ data, setData }) {
             <Button variant="contained" onClick={addToDo}>
               Add Todo
             </Button>
-            <Divider style={{margin: '0.5em 0'}} />
+            <Divider style={{ margin: "0.5em 0" }} />
 
             <Button variant="outlined" onClick={clearLocalStorage}>
               Clear History

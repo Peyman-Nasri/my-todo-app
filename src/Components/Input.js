@@ -2,31 +2,41 @@ import React from "react";
 import { useState } from "react";
 import "./Input.css";
 import { v4 as shortId } from "uuid";
-import { Button, Card, CardContent, Divider, TextField } from "@mui/material";
+import {
+  Button,
+  Card,
+  CardContent,
+  Divider,
+  TextField,
+  Alert,
+  Snackbar,
+} from "@mui/material";
 import { Stack } from "@mui/system";
 
 function Input({ data, setData }) {
   //temp state
   const [Title, setTitle] = useState("");
   const [Desc, setDesc] = useState("");
+  const [ShowAlert, setShowAlert] = useState(false);
 
   //add task
   const addToDo = () => {
-    const task = {
-      id: shortId(),
-      title: Title,
-      desc: Desc,
-      data: new Date(),
-    };
-    setTitle("");
-    setDesc("");
+    // if (!Title || !Desc) alert("Please fill out the fields needed");
+    if (!Title || !Desc) setShowAlert(true)
+    else {
+      const task = {
+        id: shortId(),
+        title: Title,
+        desc: Desc,
+        date: new Date(),
+      };
+      setTitle("");
+      setDesc("");
 
-    if (Title === "" || Desc === "")
-      return alert("Please fill out the fields needed");
+      setData([...data, task]);
 
-    setData([...data, task]);
-
-    localStorage.setItem("toDo", JSON.stringify([...data, task]));
+      localStorage.setItem("toDo", JSON.stringify([...data, task]));
+    }
   };
 
   //clear history
@@ -36,6 +46,21 @@ function Input({ data, setData }) {
   };
   return (
     <>
+      <Snackbar
+        open={ShowAlert}
+        onClose={() => setShowAlert(false)}
+        sx={{ width: "100%" }}
+        spacing={2}
+        autoHideDuration={3000}
+      >
+        <Alert
+          onClose={() => setShowAlert(false)}
+          severity="warning"
+        >
+          Please fill out the fields needed
+        </Alert>
+      </Snackbar>
+
       <Card>
         <CardContent>
           <Stack>

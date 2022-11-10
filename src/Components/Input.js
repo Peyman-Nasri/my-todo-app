@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useState } from "react";
 import "./Input.css";
 import { v4 as shortId } from "uuid";
@@ -13,16 +13,28 @@ import {
 } from "@mui/material";
 import { Stack } from "@mui/system";
 
-function Input({ data, setData }) {
-  //temp state
+function Input({ data, setData, updateData }) {
+  // state
   const [Title, setTitle] = useState("");
   const [Desc, setDesc] = useState("");
   const [ShowAlert, setShowAlert] = useState(false);
+  const [IsEditMode, setIsEditMode] = useState(false);
+
+  // switch to edit mode after receiving updateData
+  useEffect(() => {
+    if (updateData) {
+      const { id, title, desc } = updateData;
+
+      setTitle(title);
+      setDesc(desc);
+      setIsEditMode(true);
+    }
+  }, [updateData]);
 
   //add task
   const addToDo = () => {
     // if (!Title || !Desc) alert("Please fill out the fields needed");
-    if (!Title || !Desc) setShowAlert(true)
+    if (!Title || !Desc) setShowAlert(true);
     else {
       const task = {
         id: shortId(),
@@ -44,6 +56,8 @@ function Input({ data, setData }) {
     localStorage.clear();
     setData([]);
   };
+
+  // Render
   return (
     <>
       <Snackbar
@@ -53,10 +67,7 @@ function Input({ data, setData }) {
         spacing={2}
         autoHideDuration={3000}
       >
-        <Alert
-          onClose={() => setShowAlert(false)}
-          severity="warning"
-        >
+        <Alert onClose={() => setShowAlert(false)} severity="warning">
           Please fill out the fields needed
         </Alert>
       </Snackbar>
@@ -102,9 +113,16 @@ function Input({ data, setData }) {
             </span> */}
 
             {/* <button onClick={addToDo}>Add Todo</button> */}
-            <Button variant="contained" onClick={addToDo}>
-              Add Todo
-            </Button>
+            {IsEditMode ? (
+              <Button variant="contained" color="secondary" onClick={addToDo}>
+                Edit Todo
+              </Button>
+            ) : (
+              <Button variant="contained" onClick={addToDo}>
+                Add Todo
+              </Button>
+            )}
+
             <Divider style={{ margin: "0.5em 0" }} />
 
             <Button variant="outlined" onClick={clearLocalStorage}>

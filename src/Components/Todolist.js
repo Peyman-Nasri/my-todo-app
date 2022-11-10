@@ -1,31 +1,21 @@
 import React from "react";
-import DeleteIcon from "@mui/icons-material/Delete";
-import dayjs from "dayjs";
+import Todolistitem from "./Todolistitem";
+import { Grid } from "@mui/material";
 
 //add to list
-function Todolist({ data, deleteTodo }) {
+function Todolist({ data, deleteTodo, editTodo }) {
   return (
     <>
-      <div>
-        {data.map(({ title, desc, id, date }) => (
-          <div key={id}>
-            <p>
-              Title: <b>{title}</b>
-            </p>
-            <p>
-              Description: <b>{desc}</b>
-            </p>
-            <DeleteIcon
-              style={{ cursor: "pointer" }}
-              onClick={() => deleteTodo(id)}
-            />
-
-            {/* <button onClick={() => deleteTodo(id)}>delete</button> */}
-
-            {dayjs(date).format("D MMM YYYY")}
-          </div>
+      <Grid container direction="column" rowGap={2}>
+        {data.map((todoData) => (
+          <Todolistitem
+            key={todoData.id}
+            todoData={todoData}
+            deleteTodo={deleteTodo}
+            editTodo={editTodo}
+          />
         ))}
-      </div>
+      </Grid>
     </>
   );
 }

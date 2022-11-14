@@ -15,14 +15,11 @@ const Todolistitem = ({
       <Paper>
         <Grid container padding="1em">
           <Grid item xs={4}>
-            Title: {title}
+            <b>{title}</b>
           </Grid>
           <Grid item xs={6}></Grid>
           <Grid item xs={1}>
-            <Edit
-              style={{ cursor: "pointer" }}
-              onClick={() => editTodo(id)}
-            />
+            <Edit style={{ cursor: "pointer" }} onClick={() => editTodo(id)} />
           </Grid>
           <Grid item xs={1}>
             <Delete
@@ -32,7 +29,9 @@ const Todolistitem = ({
           </Grid>
 
           <Grid item xs={12} style={{ minHeight: "3em" }}>
-            Description: {desc}
+            <ul>
+              <li><i>{desc}</i></li>
+            </ul>
           </Grid>
           <Grid item xs={10}></Grid>
           <Grid item xs={2}>

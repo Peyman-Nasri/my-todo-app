@@ -13,7 +13,7 @@ import {
 } from "@mui/material";
 import { Stack } from "@mui/system";
 
-function Input({ data, setData, updateData, setUpdateData }) {
+function Input({ data, setData, updateData }) {
   // state
   const [Title, setTitle] = useState("");
   const [Desc, setDesc] = useState("");
@@ -54,28 +54,25 @@ function Input({ data, setData, updateData, setUpdateData }) {
   const editToDo = () => {
     if (!Title || !Desc) setShowAlert(true);
     else {
-      const changeTask = (e) => {
-        const newEntry = {
-          id: updateData.id,
-          title: e.target.value,
-          desc: e.target.value,
-          date: new Date(),
-        };
-        setUpdateData(newEntry)
+      const newEntry = {
+        id: updateData.id,
+        title: Title,
+        desc: Desc,
+        date: new Date(),
       };
 
-      let filterRecord = data.filter((Task) => Task.id !== updateData.id);
-      let updateObject = [...filterRecord, changeTask];
+      const indexOfNewElement = data.findIndex(
+        (task) => task.id === updateData.id
+      );
+      let newData = [...data];
+      newData[indexOfNewElement] = newEntry;
 
-      setData(updateObject);
-      setUpdateData("");
+      setData(newData);
       setTitle("");
       setDesc("");
+      setIsEditMode(false);
 
-      localStorage.setItem(
-        "toDo",
-        JSON.stringify(updateObject)
-      );
+      localStorage.setItem("toDo", JSON.stringify(newData));
     }
   };
 
@@ -142,7 +139,7 @@ function Input({ data, setData, updateData, setUpdateData }) {
 
             {/* <button onClick={addToDo}>Add Todo</button> */}
             {IsEditMode ? (
-              <Button variant="contained" color="secondary" onClick={addToDo}>
+              <Button variant="contained" color="secondary" onClick={editToDo}>
                 Edit Todo
               </Button>
             ) : (

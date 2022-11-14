@@ -26,12 +26,7 @@ function Todo() {
 
   return (
     <>
-      <Input
-        data={Data}
-        setData={setData}
-        updateData={updateData}
-        setUpdateData={setUpdateData}
-      />
+      <Input data={Data} setData={setData} updateData={updateData} />
 
       <Divider style={{ margin: "1em 0" }} />
 

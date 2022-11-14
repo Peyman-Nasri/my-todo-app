@@ -13,7 +13,7 @@ import {
 } from "@mui/material";
 import { Stack } from "@mui/system";
 
-function Input({ data, setData, updateData }) {
+function Input({ data, setData, updateData, setUpdateData }) {
   // state
   const [Title, setTitle] = useState("");
   const [Desc, setDesc] = useState("");
@@ -23,7 +23,7 @@ function Input({ data, setData, updateData }) {
   // switch to edit mode after receiving updateData
   useEffect(() => {
     if (updateData) {
-      const { id, title, desc } = updateData;
+      const { title, desc } = updateData;
 
       setTitle(title);
       setDesc(desc);
@@ -33,7 +33,6 @@ function Input({ data, setData, updateData }) {
 
   //add task
   const addToDo = () => {
-    // if (!Title || !Desc) alert("Please fill out the fields needed");
     if (!Title || !Desc) setShowAlert(true);
     else {
       const task = {
@@ -48,6 +47,35 @@ function Input({ data, setData, updateData }) {
       setData([...data, task]);
 
       localStorage.setItem("toDo", JSON.stringify([...data, task]));
+    }
+  };
+
+  //edit task
+  const editToDo = () => {
+    if (!Title || !Desc) setShowAlert(true);
+    else {
+      const changeTask = (e) => {
+        const newEntry = {
+          id: updateData.id,
+          title: e.target.value,
+          desc: e.target.value,
+          date: new Date(),
+        };
+        setUpdateData(newEntry)
+      };
+
+      let filterRecord = data.filter((Task) => Task.id !== updateData.id);
+      let updateObject = [...filterRecord, changeTask];
+
+      setData(updateObject);
+      setUpdateData("");
+      setTitle("");
+      setDesc("");
+
+      localStorage.setItem(
+        "toDo",
+        JSON.stringify(updateObject)
+      );
     }
   };
 

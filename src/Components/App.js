@@ -14,19 +14,13 @@ function App() {
           <AppBar position="static">
             <Toolbar>
               <Typography variant="h5" component="div" sx={{ flexGrow: 0.1 }}>
-                <Link to="/" style={{ textDecoration: "none" }}>
-                  HomePage
-                </Link>
+                <Link to="/">HomePage</Link>
               </Typography>
               <Typography variant="h5" component="div" sx={{ flexGrow: 0.1 }}>
-                <Link to="/todo" style={{ textDecoration: "none" }}>
-                  Todo
-                </Link>
+                <Link to="/todo">Todo</Link>
               </Typography>
               <Typography variant="h5" component="div" sx={{ flexGrow: 1 }}>
-                <Link to="/sandbox" style={{ textDecoration: "none" }}>
-                  Sandbox
-                </Link>
+                <Link to="/sandbox">Sandbox</Link>
               </Typography>
             </Toolbar>
           </AppBar>

@@ -3,8 +3,9 @@ import Todo from "./Todo";
 import "./App.css";
 import { Container, Box, AppBar, Toolbar, Typography } from "@mui/material";
 import { Link, Route, Routes } from "react-router-dom";
-import Sandbox from "./Sandbox";
 import HomePage from "../Pages/HomePage";
+import SandboxPage from "../Pages/SandboxPage"
+import TodoPage from "../Pages/TodoPage"
 
 function App() {
   return (
@@ -27,8 +28,8 @@ function App() {
         </Box>
         <Routes>
           <Route path="/" element={<HomePage />}></Route>
-          <Route path="/todo" element={<Todo />}></Route>
-          <Route path="/sandbox" element={<Sandbox />}></Route>
+          <Route path="/todo" element={<TodoPage />}></Route>
+          <Route path="/sandbox" element={<SandboxPage />}></Route>
         </Routes>
       </Container>
     </>

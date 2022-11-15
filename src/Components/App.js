@@ -34,7 +34,7 @@ function App() {
         <Routes>
           <Route path="/" element={<HomePage />}></Route>
           <Route path="/todo" element={<Todo />}></Route>
-          <Route path="/sandboxPage" element={<Sandbox />}></Route>
+          <Route path="/sandbox" element={<Sandbox />}></Route>
         </Routes>
       </Container>
     </>

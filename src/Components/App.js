@@ -1,5 +1,4 @@
 import React from "react";
-import Todo from "./Todo";
 import "./App.css";
 import { Container, Box, AppBar, Toolbar, Typography } from "@mui/material";
 import { Link, Route, Routes } from "react-router-dom";

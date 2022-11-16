@@ -3,13 +3,12 @@ import { Card } from "@mui/material";
 
 const sandbox = ({userData: {
   name,
-  id,
   email,
   phone
 }}) => {
   return (
     <>
-      <Card key={id} style={{margin: '1em auto', padding: '1em'}}>
+      <Card style={{margin: '1em auto', padding: '1em'}}>
         <div><b>Name: </b><span>{name}</span></div>
         <div><b>Email: </b><span>{email}</span></div>
         <div><b>Phone: </b><span>{phone}</span></div>

@@ -1,20 +1,15 @@
 import { Card } from "@mui/material";
+import './Sandbox.css'
 
 
-const sandbox = ({userData: {
-  name,
-  email,
-  phone
-}}) => {
+const Sandbox = () => {
   return (
     <>
       <Card style={{margin: '1em auto', padding: '1em'}}>
-        <div><b>Name: </b><span>{name}</span></div>
-        <div><b>Email: </b><span>{email}</span></div>
-        <div><b>Phone: </b><span>{phone}</span></div>
+         <h1>Here is Sandbox!!</h1>
       </Card>
     </>
   );
 };
 
-export default sandbox;
+export default Sandbox;

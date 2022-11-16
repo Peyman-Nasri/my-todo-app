@@ -3,8 +3,10 @@ import "./App.css";
 import { Container, Box, AppBar, Toolbar, Typography } from "@mui/material";
 import { Link, Route, Routes } from "react-router-dom";
 import HomePage from "../Pages/HomePage";
-import SandboxPage from "../Pages/SandboxPage"
+import UserdataPage from "../Pages/UserdataPage"
 import TodoPage from "../Pages/TodoPage"
+import SandboxPage from "../Pages/SandboxPage"
+
 
 function App() {
   return (
@@ -17,10 +19,13 @@ function App() {
                 <Link to="/">HomePage</Link>
               </Typography>
               <Typography variant="h5" component="div" sx={{ flexGrow: 0.1 }}>
-                <Link to="/todo">Todo</Link>
+                <Link to="/todo">ToDo</Link>
+              </Typography>
+              <Typography variant="h5" component="div" sx={{ flexGrow: 0.1 }}>
+                <Link to="/userdata">UserData</Link>
               </Typography>
               <Typography variant="h5" component="div" sx={{ flexGrow: 1 }}>
-                <Link to="/sandbox">Sandbox</Link>
+                <Link to="/sandboxpage">SandboxPage</Link>
               </Typography>
             </Toolbar>
           </AppBar>
@@ -28,7 +33,8 @@ function App() {
         <Routes>
           <Route path="/" element={<HomePage />}></Route>
           <Route path="/todo" element={<TodoPage />}></Route>
-          <Route path="/sandbox" element={<SandboxPage />}></Route>
+          <Route path="/userdata" element={<UserdataPage />}></Route>
+          <Route path="/sandboxpage" element={<SandboxPage />}></Route>
         </Routes>
       </Container>
     </>

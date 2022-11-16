@@ -71,18 +71,18 @@ const UserdataPage = () => {
   // Render list of users
   return (
     <>
-      <h1>Search users</h1>
+      <h2>Search Users</h2>
       <TextField
-              id="outlined-basic"
-              autoComplete="off"
-              label="Title"
-              variant="outlined"
-              type="text"
-              // value={Title}
-              // onChange={(e) => setTitle(e.target.value)}
-            />
+        id="outlined-basic"
+        autoComplete="off"
+        label="UserName"
+        variant="outlined"
+        type="text"
+        // value={Title}
+        // onChange={(e) => setTitle(e.target.value)}
+      />
       {Users.map((user) => (
-        <Userdata userData={user} key={user.id}/>
+        <Userdata userData={user} key={user.id} />
       ))}
     </>
   );

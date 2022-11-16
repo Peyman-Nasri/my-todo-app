@@ -6,7 +6,7 @@ import { Divider } from "@mui/material";
 
 //render the page
 function Todo() {
-  //temp state
+  //state
   const [Data, setData] = useState(
     JSON.parse(localStorage.getItem("toDo")) || []
   );

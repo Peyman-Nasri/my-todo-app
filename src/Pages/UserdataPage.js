@@ -7,37 +7,58 @@ const UserdataPage = () => {
   /**************************************
    ******** State
    *************************************/
-  const [Users, setUsers] = useState([]);
+  const [Users, setUsers] = useState(false);
   const [FetchingData, setFetchingData] = useState(false);
-
-  /**************************************
-   ******** Get users on mount
-   *************************************/
-  useEffect(() => {
-    getUsers();
-  }, []);
+  const [SearchUser, setSearchUser] = useState("");
+  // const [Timer, setTimer] = useState(null);
 
   /**************************************
    ******** Get Users
    *************************************/
-  const getUsers = async () => {
-    setFetchingData(true);
+  useEffect(() => {
+    
+    const getUsers = async () => {
+      setFetchingData(true);
 
-    const { data: users } = await axios.get(
-      "https://jsonplaceholder.typicode.com/users"
-    );
-    setUsers(users);
+      const { data: users } = await axios.get(
+        "https://jsonplaceholder.typicode.com/users"
+      );
 
-    setFetchingData(false);
+      const updatedUser = users.filter((user) =>
+        user.name.toLowerCase().includes(SearchUser.toLowerCase())
+      );
 
-    // Then/catch
-    // axios.get('https://jsonplaceholder.typicode.com/users')
-    //   .then(({data}) => {
-    //     // console.log(data)
-    //     setUsers(data)
-    //   })
-    // .catch(err => console.log(err))
-  };
+      setUsers(updatedUser);
+
+      setFetchingData(false);
+
+      // Then/catch
+      // axios.get('https://jsonplaceholder.typicode.com/users')
+      //   .then(({data}) => {
+      //     // console.log(data)
+      //     setUsers(data)
+      //   })
+      // .catch(err => console.log(err))
+    };
+
+    /**************************************
+     ******** Delay in searching
+     *************************************/
+
+    const delayFunction = setTimeout(() => {
+      getUsers();
+    }, 1000);
+
+    return () => clearTimeout(delayFunction);
+
+    //   if (Timer) {
+    //     clearTimeout(Timer);
+    //     const time = setTimeout(getUsers(), 1000);
+    //     setTimer(time);
+    //   } else {
+    //     const time = setTimeout(getUsers(), 1000);
+    //     setTimer(time);
+  }, [SearchUser]);
 
   // Show loading indicator
   if (FetchingData)
@@ -68,18 +89,18 @@ const UserdataPage = () => {
       </Card>
     );
 
-  // Render list of users
   return (
     <>
-      <h2>Search Users</h2>
       <TextField
         id="outlined-basic"
         autoComplete="off"
-        label="UserName"
+        label="Search UserName ..."
         variant="outlined"
+        margin="normal"
+        fullWidth
         type="text"
-        // value={Title}
-        // onChange={(e) => setTitle(e.target.value)}
+        value={SearchUser}
+        onChange={(e) => setSearchUser(e.target.value)}
       />
       {Users.map((user) => (
         <Userdata userData={user} key={user.id} />

@@ -30,7 +30,9 @@ const Todolistitem = ({
 
           <Grid item xs={12} style={{ minHeight: "3em" }}>
             <ul>
-              <li><i>{desc}</i></li>
+              <li>
+                <i>{desc}</i>
+              </li>
             </ul>
           </Grid>
           <Grid item xs={10}></Grid>

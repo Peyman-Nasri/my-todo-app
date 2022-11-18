@@ -3,10 +3,10 @@ import "./App.css";
 import { Container, Box, AppBar, Toolbar, Typography } from "@mui/material";
 import { Link, Route, Routes } from "react-router-dom";
 import HomePage from "../Pages/HomePage";
-import UserdataPage from "../Pages/UserdataPage"
-import TodoPage from "../Pages/TodoPage"
-import SandboxPage from "../Pages/SandboxPage"
-
+import UserdataPage from "../Pages/UserdataPage";
+import TodoPage from "../Pages/TodoPage";
+import SandboxPage from "../Pages/SandboxPage";
+import UserPage from "../Pages/UserPage";
 
 function App() {
   return (
@@ -31,10 +31,12 @@ function App() {
           </AppBar>
         </Box>
         <Routes>
-          <Route path="/" element={<HomePage />}></Route>
-          <Route path="/todo" element={<TodoPage />}></Route>
-          <Route path="/userdata" element={<UserdataPage />}></Route>
-          <Route path="/sandboxpage" element={<SandboxPage />}></Route>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/todo" element={<TodoPage />} />
+          <Route path="/userdata" element={<UserdataPage />} />
+          <Route path="/userdata/:userId/:userName" element={<UserPage />} />
+          <Route path="/sandboxpage" element={<SandboxPage />} />
+          <Route path="*" element={<h1>404</h1>} />
         </Routes>
       </Container>
     </>

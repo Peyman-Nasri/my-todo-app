@@ -1,3 +1,4 @@
+import { Card } from "@mui/material";
 import { useParams } from "react-router-dom";
 
 const UserPage = () => {
@@ -6,8 +7,16 @@ const UserPage = () => {
   return (
     <>
       <h1>User Page:</h1>
-      <p>User Id is: {userId}</p>
-      <p>User Name is: {userName}</p>
+      <Card style={{ margin: "1em auto", padding: "1em"}}>
+        <div>
+          <b>ID: </b>
+          <span>{userId}</span>
+        </div>
+        <div>
+          <b>Name: </b>
+          <span>{userName}</span>
+        </div>
+      </Card>
     </>
   );
 };

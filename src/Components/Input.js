@@ -92,7 +92,7 @@ function Input({ data, setData, updateData }) {
         spacing={2}
         autoHideDuration={3000}
       >
-        <Alert onClose={() => setShowAlert(false)} severity="warning">
+        <Alert onClose={() => setShowAlert(false)} severity="error">
           Please fill out the fields needed
         </Alert>
       </Snackbar>

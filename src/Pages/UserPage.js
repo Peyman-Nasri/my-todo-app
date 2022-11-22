@@ -6,7 +6,7 @@ const UserPage = () => {
 
   return (
     <>
-      <h1>User Page:</h1>
+      <h1>User Page</h1>
       <Card style={{ margin: "1em auto", padding: "1em"}}>
         <div>
           <b>ID: </b>

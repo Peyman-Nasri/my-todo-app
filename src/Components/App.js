@@ -31,7 +31,7 @@ function App() {
           </AppBar>
         </Box>
         <Routes>
-          <Route path="/" element={<HomePage />} />
+          <Route exact path="/" element={<HomePage />} />
           <Route path="/todo" element={<TodoPage />} />
           <Route path="/userdata" element={<UserdataPage />} />
           <Route path="/userdata/:userId/:userName" element={<UserPage />} />

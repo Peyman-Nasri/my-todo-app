@@ -11,6 +11,7 @@ import UserPage from "../Pages/UserPage";
 function App() {
   return (
     <>
+      {/* using Link outside the Routes cause we want to run it once and have them available in the whole app */}
       <Container maxWidth="md" style={{ padding: "3em 0" }}>
         <Box sx={{ flexGrow: 1 }}>
           <AppBar position="static">
@@ -30,6 +31,7 @@ function App() {
             </Toolbar>
           </AppBar>
         </Box>
+        {/* defining the routes here for link pages */}
         <Routes>
           <Route exact path="/" element={<HomePage />} />
           <Route path="/todo" element={<TodoPage />} />

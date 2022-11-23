@@ -85,18 +85,6 @@ function Input({ data, setData, updateData }) {
   // Render
   return (
     <>
-      <Snackbar
-        open={ShowAlert}
-        onClose={() => setShowAlert(false)}
-        sx={{ width: "100%" }}
-        spacing={2}
-        autoHideDuration={3000}
-      >
-        <Alert onClose={() => setShowAlert(false)} severity="error">
-          Please fill out the fields needed
-        </Alert>
-      </Snackbar>
-
       <Card>
         <CardContent>
           <Stack>
@@ -107,6 +95,7 @@ function Input({ data, setData, updateData }) {
               variant="outlined"
               type="text"
               value={Title}
+              //saving the value of the input field in title state
               onChange={(e) => setTitle(e.target.value)}
             />
             <Divider style={{ margin: "0.5em 0" }} />
@@ -157,6 +146,18 @@ function Input({ data, setData, updateData }) {
           </Stack>
         </CardContent>
       </Card>
+
+      <Snackbar
+        open={ShowAlert}
+        onClose={() => setShowAlert(false)}
+        sx={{ width: "100%" }}
+        spacing={2}
+        autoHideDuration={3000}
+      >
+        <Alert onClose={() => setShowAlert(false)} severity="error">
+          Please fill out the fields needed
+        </Alert>
+      </Snackbar>
     </>
   );
 }

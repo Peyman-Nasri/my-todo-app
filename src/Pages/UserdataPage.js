@@ -42,10 +42,26 @@ const UserdataPage = () => {
   /**************************************
    ******** Search by typing
    *************************************/
+  // better approach
+  // useEffect(() => {
+  // const timer = setTimeout(() => getUsers(), 1000);
+  // return () => clearTimeout(timer);
+  // }, [SearchUser]);
+
+  // useEffect(() => {
+  //   if (SearchUser.length) {
+  //     if (Timer) clearTimeout(Timer);
+  //     setTimer(setTimeout(getUsers(), 1000));
+  //   } else if (!SearchUser && Users.length) {
+  //     setUsers([]);
+  //   }
+  // }, [SearchUser]);
+
   useEffect(() => {
     if (SearchUser.length) {
       if (Timer) clearTimeout(Timer);
-      setTimer(setTimeout(getUsers(), 1000));
+
+      setTimer(setTimeout(() => getUsers(), 1000));
     } else if (!SearchUser && Users.length) {
       setUsers([]);
     }

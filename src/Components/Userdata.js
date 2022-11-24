@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 const Userdata = ({ userData: { id, name, email, phone } }) => {
   return (
     <>
-      <Link to={`/userdata/${id}/${name}`}>
+      <Link to={`/userdata/${id}`}>
         <Card style={{ margin: "1em auto", padding: "1em" }}>
           <div>
             <b>Name: </b>

@@ -36,7 +36,7 @@ function App() {
           <Route exact path="/" element={<HomePage />} />
           <Route path="/todo" element={<TodoPage />} />
           <Route path="/userdata" element={<UserdataPage />} />
-          <Route path="/userdata/:userId/:userName" element={<UserPage />} />
+          <Route path="/userdata/:userId" element={<UserPage />} />
           <Route path="/sandboxpage" element={<SandboxPage />} />
           <Route path="*" element={<h1>404</h1>} />
         </Routes>

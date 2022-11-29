@@ -1,7 +1,7 @@
 import { Card } from "@mui/material";
 import { Link } from "react-router-dom";
 
-const Userdata = ({ userData: { id, name, email, phone } }) => {
+const Userdata = ({ userData: { id, name } }) => {
   return (
     <>
       <Link to={`/userdata/${id}`}>
@@ -9,14 +9,6 @@ const Userdata = ({ userData: { id, name, email, phone } }) => {
           <div>
             <b>Name: </b>
             <span>{name}</span>
-          </div>
-          <div>
-            <b>Email: </b>
-            <span>{email}</span>
-          </div>
-          <div>
-            <b>Phone: </b>
-            <span>{phone}</span>
           </div>
         </Card>
       </Link>

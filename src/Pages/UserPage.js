@@ -36,6 +36,10 @@ const UserPage = () => {
           <div>
             <b>Username: </b>
             <span>{user.username}</span>
+            </div>
+            <div>
+            <b>Phone: </b>
+            <span>{user.phone}</span>
           </div>
           <div>
             <b>Email: </b>

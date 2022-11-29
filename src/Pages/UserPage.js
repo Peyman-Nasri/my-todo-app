@@ -1,12 +1,19 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import styled from "@emotion/styled";
 import { Card, LinearProgress } from "@mui/material";
 import axios from "axios";
 import { useEffect, useState } from "react";
+import { useSelector } from "react-redux"
 import { useParams } from "react-router-dom";
 
 const UserPage = () => {
   const [FetchingData, setFetchingData] = useState(true);
   const [user, setUser] = useState(false);
+
+  /**************************************
+   ******** Redux
+   *************************************/
+  const counter = useSelector(state => state.counter)
 
   const { userId } = useParams();
   const getUser = async () => {
@@ -55,6 +62,8 @@ const UserPage = () => {
           </div>
         </StyledCard>
       )}
+
+      <h1>The value of the counter in redux is: {counter}</h1>
     </>
   );
 };

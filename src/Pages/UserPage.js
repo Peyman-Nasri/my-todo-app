@@ -3,7 +3,7 @@ import styled from "@emotion/styled";
 import { Card, LinearProgress } from "@mui/material";
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { useSelector } from "react-redux"
+// import { useSelector } from "react-redux"
 import { useParams } from "react-router-dom";
 
 const UserPage = () => {
@@ -13,7 +13,7 @@ const UserPage = () => {
   /**************************************
    ******** Redux
    *************************************/
-  const counter = useSelector(state => state.counter)
+  // const counter = useSelector(state => state.counter)
 
   const { userId } = useParams();
   const getUser = async () => {
@@ -63,7 +63,7 @@ const UserPage = () => {
         </StyledCard>
       )}
 
-      <h1>The value of the counter in redux is: {counter}</h1>
+      {/* <h1>The value of the counter in redux is: {counter}</h1> */}
     </>
   );
 };

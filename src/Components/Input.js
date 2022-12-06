@@ -1,6 +1,5 @@
 import React, { useEffect } from "react";
 import { useState } from "react";
-import "./Input.css";
 import { v4 as shortId } from "uuid";
 import {
   Button,

@@ -20,7 +20,7 @@ const UserdataPage = () => {
     setFetchingData(true);
 
     const { data: users } = await axios.get(
-      "https://jsonplaceholder.typicode.com/users"
+      `${process.env.REACT_APP_SERVICE_API_KEY}/users`
     );
 
     const updatedUser = users.filter((user) =>

@@ -4,7 +4,6 @@ import { Link, Route, Routes } from "react-router-dom";
 import HomePage from "../Pages/HomePage";
 import UserdataPage from "../Pages/UserdataPage";
 import TodoPage from "../Pages/TodoPage";
-import SandboxPage from "../Pages/SandboxPage";
 import UserPage from "../Pages/UserPage";
 // import { useDispatch } from "react-redux"
 // import { DECREASE_COUNTER, INCREASE_COUNTER, RESET_COUNTER, _666 } from "../redux/constants/counterConstants"
@@ -35,9 +34,6 @@ function App() {
               <Typography variant="h5" component="div" sx={{ flexGrow: 0.1 }}>
                 <Link to="/userdata">UserData</Link>
               </Typography>
-              <Typography variant="h5" component="div" sx={{ flexGrow: 1 }}>
-                <Link to="/sandboxpage">SandboxPage</Link>
-              </Typography>
             </Toolbar>
           </AppBar>
         </Box>
@@ -47,7 +43,6 @@ function App() {
           <Route path="/todo" element={<TodoPage />} />
           <Route path="/userdata" element={<UserdataPage />} />
           <Route path="/userdata/:userId" element={<UserPage />} />
-          <Route path="/sandboxpage" element={<SandboxPage />} />
           <Route path="*" element={<h1>404</h1>} />
         </Routes>
       </Container>

@@ -21,8 +21,10 @@ function Todo() {
 
   //delete task
   const deleteTodo = (id) => {
-    const newTasks = Data.filter(({ id: taskId }) => taskId !== id);
-    setData(newTasks);
+    if (window.confirm("Are you sure to delete this service?")) {
+      const newTasks = Data.filter(({ id: taskId }) => taskId !== id);
+      setData(newTasks);
+    }
   };
 
   return (

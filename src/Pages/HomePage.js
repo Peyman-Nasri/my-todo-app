@@ -1,14 +1,18 @@
-import { Card } from "@mui/material";
+import { CardContent, Typography } from "@mui/material";
+import { Container } from "@mui/system";
 import "./HomePage.css";
 
 const Homepage = () => {
   return (
     <>
-      <Card>
-        <h1>
-          <i>Welcome to my APP</i>
-        </h1>
-      </Card>
+      <Container>
+        <CardContent>
+          <Typography gutterBottom variant="h5" component="div">
+            About Me
+          </Typography>
+          <Typography variant="body2" color="text.secondary"></Typography>
+        </CardContent>
+      </Container>
     </>
   );
 };

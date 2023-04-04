@@ -1,21 +1,30 @@
 import React from "react";
-import { Container, Box, AppBar, Toolbar, Typography } from "@mui/material";
+import { Container, Box, AppBar, Toolbar, Typography, ThemeProvider, createTheme } from "@mui/material";
 import { Link, Route, Routes } from "react-router-dom";
 import HomePage from "../Pages/HomePage";
 import UserdataPage from "../Pages/UserdataPage";
 import TodoPage from "../Pages/TodoPage";
 import UserPage from "../Pages/UserPage";
+import { deepPurple } from "@mui/material/colors";
 // import { useDispatch } from "react-redux"
 // import { DECREASE_COUNTER, INCREASE_COUNTER, RESET_COUNTER, _666 } from "../redux/constants/counterConstants"
 
+const customTheme = createTheme({
+  palette: {
+    primary: {
+      main: deepPurple[500],
+    },
+  },
+});
 function App() {
 
   // const dispatch = useDispatch()
 
   return (
-    <>
+    
+      <ThemeProvider theme={customTheme}>
       {/* using Link outside the Routes cause we want to run it once and have them available in the whole app */}
-      <Container maxWidth="md" style={{ padding: "3em 0" }}>
+      <Container maxWidth="xl" style={{ padding: "0" }}>
         <Box sx={{ flexGrow: 1 }}>
           
         {/* <Button variant="outlined" onClick={() => dispatch({type: DECREASE_COUNTER})}>-</Button>
@@ -45,8 +54,9 @@ function App() {
           <Route path="/userdata/:userId" element={<UserPage />} />
           <Route path="*" element={<h1>404</h1>} />
         </Routes>
-      </Container>
-    </>
+        </Container>
+        </ThemeProvider>
+    
   );
 }
 

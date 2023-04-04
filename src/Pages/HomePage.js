@@ -7,10 +7,15 @@ const Homepage = () => {
     <>
       <Container>
         <CardContent>
-          <Typography gutterBottom variant="h5" component="div">
+          <Typography variant="h5" component="div">
             About Me
           </Typography>
-          <Typography variant="body2" color="text.secondary"></Typography>
+          <Typography variant="body2" color="text.secondary">
+            I am a self-motivated, collaborative and decisive front-end
+            developer with a passion for programming, I am enthusiastic to learn
+            new technologies and enjoy taking apart and reassembling just about
+            anything.
+          </Typography>
         </CardContent>
       </Container>
     </>

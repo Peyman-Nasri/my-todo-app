@@ -5,14 +5,14 @@ import HomePage from "../Pages/HomePage";
 import UserdataPage from "../Pages/UserdataPage";
 import TodoPage from "../Pages/TodoPage";
 import UserPage from "../Pages/UserPage";
-import { deepPurple } from "@mui/material/colors";
+import { blueGrey } from "@mui/material/colors";
 // import { useDispatch } from "react-redux"
 // import { DECREASE_COUNTER, INCREASE_COUNTER, RESET_COUNTER, _666 } from "../redux/constants/counterConstants"
 
 const customTheme = createTheme({
   palette: {
     primary: {
-      main: deepPurple[500],
+      main: blueGrey[800],
     },
   },
 });

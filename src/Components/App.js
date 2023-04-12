@@ -15,15 +15,16 @@ import HomePage from "../Pages/HomePage";
 import UserdataPage from "../Pages/UserdataPage";
 import TodoPage from "../Pages/TodoPage";
 import UserPage from "../Pages/UserPage";
-import { blueGrey } from "@mui/material/colors";
+import { red } from "@mui/material/colors";
 import ContactMePage from "../Pages/ContactMePage";
+import AboutMePage from "../Pages/AboutMePage";
 // import { useDispatch } from "react-redux"
 // import { DECREASE_COUNTER, INCREASE_COUNTER, RESET_COUNTER, _666 } from "../redux/constants/counterConstants"
 
 const customTheme = createTheme({
   palette: {
     primary: {
-      main: blueGrey[800],
+      main: red[400],
     },
   },
 });
@@ -40,11 +41,16 @@ function App() {
         <Button onClick={() => dispatch({type: RESET_COUNTER, payload: 0})}>Reset</Button>
         <Button onClick={() => dispatch({type: _666, payload: 666})}>666</Button> */}
 
-          <AppBar position="static">
+          <AppBar position="static" style={{ backgroundColor: "rgba(0, 0, 0, 0)" }}>
             <Toolbar>
               <Typography variant="h5" component="div" sx={{ flexGrow: 0.08 }}>
                 <Button>
                   <Link to="/">Home Page</Link>
+                </Button>
+              </Typography>
+              <Typography variant="h5" component="div" sx={{ flexGrow: 0.08 }}>
+                <Button>
+                  <Link to="/aboutme">About Me</Link>
                 </Button>
               </Typography>
               <Typography variant="h5" component="div" sx={{ flexGrow: 0.08 }}>
@@ -63,7 +69,7 @@ function App() {
                 </Button>
               </Typography>
               <Typography variant="h5" component="div">
-                <Avatar alt="Peyman Nasri" src="mypic.jpg" sx={{ width: 54, height: 54 }}/>
+                <Avatar alt="My Picture" src="mypic.jpg" sx={{ width: 54, height: 54 }}/>
               </Typography>
             </Toolbar>
           </AppBar>
@@ -71,6 +77,7 @@ function App() {
         {/* defining the routes here for link pages */}
         <Routes>
           <Route exact path="/" element={<HomePage />} />
+          <Route path="/aboutme" element={<AboutMePage />} />
           <Route path="/todo" element={<TodoPage />} />
           <Route path="/userdata" element={<UserdataPage />} />
           <Route path="/userdata/:userId" element={<UserPage />} />

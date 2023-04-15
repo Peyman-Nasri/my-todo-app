@@ -33,7 +33,7 @@ function App() {
 
   return (
     <ThemeProvider theme={customTheme}>
-      {/* using Link outside the Routes cause we want to run it once and have them available in the whole app */}
+      {/* using Link outside the Routes since we want to run it once and have them available in the whole app */}
       <Container maxWidth="xl" style={{ padding: "0" }}>
         <Box sx={{ flexGrow: 1 }}>
           {/* <Button variant="outlined" onClick={() => dispatch({type: DECREASE_COUNTER})}>-</Button>
@@ -41,35 +41,72 @@ function App() {
         <Button onClick={() => dispatch({type: RESET_COUNTER, payload: 0})}>Reset</Button>
         <Button onClick={() => dispatch({type: _666, payload: 666})}>666</Button> */}
 
-          <AppBar position="static" style={{ backgroundColor: "rgba(0, 0, 0, 0)" }}>
-            <Toolbar>
-              <Typography variant="h5" component="div" sx={{ flexGrow: 0.08 }}>
+          <AppBar
+            position="static"
+            style={{ backgroundColor: "rgba(0, 0, 0, 0)" }}
+          >
+            <Toolbar container>
+              <Typography
+                item
+                variant="h5"
+                component="div"
+                sx={{ flexGrow: 0.2 }}
+              >
                 <Button>
                   <Link to="/">Home Page</Link>
                 </Button>
               </Typography>
-              <Typography variant="h5" component="div" sx={{ flexGrow: 0.08 }}>
+              <Typography
+                item
+                variant="h5"
+                component="div"
+                sx={{ flexGrow: 0.2 }}
+              >
                 <Button>
                   <Link to="/aboutme">About Me</Link>
                 </Button>
               </Typography>
-              <Typography variant="h5" component="div" sx={{ flexGrow: 0.08 }}>
+              <Typography
+                item
+                variant="h5"
+                component="div"
+                sx={{ flexGrow: 0.2 }}
+              >
                 <Button>
                   <Link to="/todo">ToDo List</Link>
                 </Button>
               </Typography>
-              <Typography variant="h5" component="div" sx={{ flexGrow: 0.08 }}>
+              <Typography
+                item
+                variant="h5"
+                component="div"
+                sx={{ flexGrow: 0.2 }}
+              >
                 <Button>
                   <Link to="/userdata">User Data</Link>
                 </Button>
               </Typography>
-              <Typography variant="h5" component="div" sx={{ flexGrow: 0.08 }}>
+              <Typography
+                item
+                variant="h5"
+                component="div"
+                sx={{ flexGrow: 0.2 }}
+              >
                 <Button>
                   <Link to="/contactme">Contact Me</Link>
                 </Button>
               </Typography>
-              <Typography variant="h5" component="div">
-                <Avatar alt="My Picture" src="mypic.jpg" sx={{ width: 54, height: 54 }}/>
+              <Typography
+                item
+                variant="h5"
+                component="div"
+                sx={{ flexGrow: 0.08, marginLeft: 100 }}
+              >
+                <Avatar
+                  alt="My Picture"
+                  src="mypic.jpg"
+                  sx={{ width: 54, height: 54 }}
+                />
               </Typography>
             </Toolbar>
           </AppBar>

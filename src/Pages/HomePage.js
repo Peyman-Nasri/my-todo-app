@@ -1,11 +1,7 @@
 import "./HomePage.css";
 
 const Homepage = () => {
-  return (
-    <>
-      
-    </>
-  );
+  return <div className="overlay"></div>;
 };
 
 export default Homepage;

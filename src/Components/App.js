@@ -18,6 +18,7 @@ import UserPage from "../Pages/UserPage";
 import { red } from "@mui/material/colors";
 import ContactMePage from "../Pages/ContactMePage";
 import AboutMePage from "../Pages/AboutMePage";
+import Modal from "./Modal";
 // import { useDispatch } from "react-redux"
 // import { DECREASE_COUNTER, INCREASE_COUNTER, RESET_COUNTER, _666 } from "../redux/constants/counterConstants"
 
@@ -110,6 +111,7 @@ function App() {
               </Typography>
             </Toolbar>
           </AppBar>
+          <Modal />
         </Box>
         {/* defining the routes here for link pages */}
         <Routes>

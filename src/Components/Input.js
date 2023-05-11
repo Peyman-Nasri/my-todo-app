@@ -84,7 +84,7 @@ function Input({ data, setData, updateData }) {
   // Render
   return (
     <>
-      <Card>
+      <Card style={{ width: "50%", margin: "1em 23em" }}>
         <CardContent>
           <Stack>
             <TextField
@@ -98,14 +98,6 @@ function Input({ data, setData, updateData }) {
               onChange={(e) => setTitle(e.target.value)}
             />
             <Divider style={{ margin: "0.5em 0" }} />
-            {/* <span className="title">
-              Title:
-              <input
-                type="text"
-                value={Title}
-                onChange={(e) => setTitle(e.target.value)}
-              />
-            </span> */}
             <TextField
               id="outlined-multiline-static"
               label="Description"
@@ -116,16 +108,6 @@ function Input({ data, setData, updateData }) {
             />
             <Divider style={{ margin: "0.5em 0" }} />
 
-            {/* <span className="desc">
-              Description:
-              <textarea
-                type="text"
-                value={Desc}
-                onChange={(e) => setDesc(e.target.value)}
-              />
-            </span> */}
-
-            {/* <button onClick={addToDo}>Add Todo</button> */}
             {IsEditMode ? (
               <Button variant="contained" color="secondary" onClick={editToDo}>
                 Edit Todo
@@ -141,7 +123,6 @@ function Input({ data, setData, updateData }) {
             <Button variant="outlined" onClick={clearLocalStorage}>
               Clear History
             </Button>
-            {/* <button onClick={clearLocalStorage}>Clear History</button> */}
           </Stack>
         </CardContent>
       </Card>

@@ -38,13 +38,12 @@ const UserPage = () => {
       {FetchingData ? (
         <LinearProgress />
       ) : (
-        // <Card style={{ margin: "1em auto", padding: "1em", lineHeight: '1.5em' }}>
         <StyledCard>
           <div>
             <b>Username: </b>
             <span>{user.username}</span>
-            </div>
-            <div>
+          </div>
+          <div>
             <b>Phone: </b>
             <span>{user.phone}</span>
           </div>
@@ -70,9 +69,8 @@ const UserPage = () => {
 
 export default UserPage;
 
-
 const StyledCard = styled(Card)`
   margin: 1.5 auto;
   line-height: 1.5em;
   padding: 1em;
-`
+`;

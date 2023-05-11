@@ -1,5 +1,5 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import { TextField } from "@mui/material";
+import { Card, CardContent, TextField } from "@mui/material";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import RenderUsersList from "../Components/RenderUsersList";
@@ -69,20 +69,22 @@ const UserdataPage = () => {
   // }, [SearchUser]);
 
   return (
-    <>
-      <TextField
-        id="outlined-basic"
-        autoComplete="off"
-        label="Search UserName ..."
-        variant="outlined"
-        margin="normal"
-        fullWidth
-        type="text"
-        value={SearchUser}
-        onChange={(e) => setSearchUser(e.target.value)}
-      />
-      <RenderUsersList users={Users} fetchingData={FetchingData} />
-    </>
+    <Card sx={{ width: "50%", margin: "5em 23em" }}>
+      <CardContent>
+        <TextField
+          id="outlined-basic"
+          autoComplete="off"
+          label="Search UserName ..."
+          variant="outlined"
+          margin="normal"
+          fullWidth
+          type="text"
+          value={SearchUser}
+          onChange={(e) => setSearchUser(e.target.value)}
+        />
+        <RenderUsersList users={Users} fetchingData={FetchingData} />
+      </CardContent>
+    </Card>
   );
 };
 
